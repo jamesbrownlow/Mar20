@@ -33,6 +33,17 @@ bwplot(HrsSleep~Sex,data=pennstate1)
 ```{r}
 bwplot(Fastest~Sex,data=pennstate1)
 ```
+```{r}
+t.test(Fastest~Sex,data=pennstate1)
+source("bootstrap.R")
+a<-pennstate1$Fastest[pennstate1$Sex=="M"]
+a <- a[!is.na(a)] ### bulletproof against missing data
+b<-pennstate1$Fastest[pennstate1$Sex!="M"]
+b <- b[!is.na(b)]   ### bulletproof against missing data
+myboot<-bootstrp(a,b,250)
+print(myboot$pval)
+hist(myboot$diffs)
+```
 
 ## Ucdavis1 data frame
 
