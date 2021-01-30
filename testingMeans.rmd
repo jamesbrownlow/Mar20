@@ -19,9 +19,6 @@ data(pennstate1)
 pennstate1
 ```
 
-
-
-
 ###test whether there is a difference between the average hours of sleep between guys and gals.
 
 ```{r}
